@@ -1,0 +1,26 @@
+services:
+  mongo:
+    image: mongo:6
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    networks: [backend3]
+
+  api:
+    image: jomanci11/backend3:1.0.1
+    container_name: backend3-api
+    depends_on:
+      - mongo
+    environment:
+      MONGO_URL: mongodb://mongo:27017/backend3
+      PORT: "8080"
+      SALT_ROUNDS: "9"
+      NODE_ENV: "production"
+    ports:
+      - "8080:8080"
+    networks: [backend3]
+    restart: unless-stopped
+
+networks:
+  backend3:
+    driver: bridge

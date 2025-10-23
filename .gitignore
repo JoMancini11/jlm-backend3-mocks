@@ -1,0 +1,21 @@
+# Node.js dependencies
+node_modules/
+.env
+.env.docker
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.log
+
+# Docker
+docker-data/
+data/
+*.pid
+
+# Editor / Sistema
+.vscode/
+.DS_Store
+Thumbs.db
